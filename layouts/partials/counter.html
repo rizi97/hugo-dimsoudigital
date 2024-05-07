@@ -1,0 +1,25 @@
+<!-- START: We're in This Together -->
+<section class="pt-14 md:pt-24 md:pb-24 overflow-hidden relative">
+    <div class="absolute top-0 left-0 right-0 -z-10 ">
+        <span class="bg-gradient-to-b from-black to-transparent h-full w-full absolute"></span>
+        <img class="mx-auto w-52 mb-6" src="/assets/images/hero.png" alt="">
+    </div>
+    <!-- Container  -->
+    <div class="max-w-7xl mx-auto px-8 h-4/6">
+        <div class="max-w-6xl mx-auto text-center mb-11 md:mb-16">
+            <h2 class="text-3xl md:text-8xl mb-5 md:mb-8 font-bold">{{ .Params.counter.title }}</h2>
+            <p class="max-w-4xl mx-auto text-xs md:text-lg opacity-50 leading-5 md:leading-7">{{ .Params.counter.content }}</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto grid grid-cols-3 gap-5 md:gap-10 lg:gap-14 text-center">
+            
+            {{ range .Params.counter.items }}
+            <div class="mb-7 md:mb-0">
+                <h5 class="text-2xl md:text-3xl mb-3 md:mb-5 font-bold text-gradient inline-block font-bold">{{ .title }}</h5>
+                <p class="text-xs md:text-base">{{ .tagline }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+<!-- END: We're in This Together -->

@@ -1,0 +1,58 @@
+baseURL = '/'
+languageCode = 'en'
+title = 'Dimsou Digital'
+
+[related]
+    threshold = 0 
+    includeNewer = true
+    toLower = false
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
+
+    [[related.indices]]
+        name = "date"
+        weight = 10
+
+
+[menu]
+[[menu.main_menu]]
+  name = 'Home'
+  url = '/'
+  weight = '1'
+[[menu.main_menu]]
+  name = 'About Us'
+  url = '/#about-us'
+  weight = '2'
+[[menu.main_menu]]
+  name = 'Our Services'
+  url = '/#our-services'
+  weight = '3'
+[[menu.main_menu]]
+  name = 'Blog'
+  url = '/blog'
+  weight = '4'
+
+[[menu.footer]]
+  name = 'Home'
+  url = '/'
+  weight = '1'
+[[menu.footer]]
+  name = 'About Us'
+  url = '/#about-us'
+  weight = '2'
+[[menu.footer]]
+  name = 'Our Services'
+  url = '/#our-services'
+  weight = '3'
+
+[[menu.footer_bottom]]
+  name = 'Privacy Policy'
+  url = '/privacy'
+  weight = '1'
+
+[Params]
+siteLogo = "/assets/images/logo.svg"
+footerEmail = "contact@dimsoudigital.com"
+footerText = "Dimsou Digital SEZC, 90 N Church St, Strathvale House, George Town, Grand Cayman, Cayman Islands"

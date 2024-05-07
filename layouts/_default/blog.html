@@ -1,0 +1,96 @@
+{{ define "main"}}
+
+{{ $postCount := len .Pages }}
+
+<div class="main_ bg-contain bg-no-repeat">
+    <div class="container mx-auto max-w-7xl {{ if lt $postCount 4 }} grid {{ end }} sm:px-0">
+        <div class="text-left pt-[64px] pb-[24px] md:py-[64px] ">
+            <h2
+                class="text-[36px] md:text-[100px] font-medium leading-50px md:leading-120 mt-0 md:mb-[32px] mb-[8px] text-white sm:ml-[-5px]">
+                <span class="text-purple-600">Blog</span> Posts
+            </h2>
+            <p class="text-[12px] md:text-[18px] leading-19px md:leading-30px text-gray-400">
+                {{ .Params.tagline }}
+            </p>
+        </div>
+        <div class="filter_list">
+            <ul class="flex items-center border-b border-light-gray w-[calc(100%+20px)] md:max-w-max overflow-x-auto overflow-y-hidden no-scrollbar">
+                <li class="active whitespace-nowrap">
+                    <a href="#" value="all" class="px-[16px] py-[13px] text-[12px] md:text-[16px] leading-21px md:leading-30px inline-block text-light-gray">
+                        All categories
+                    </a>
+                </li>
+                <li class="whitespace-nowrap">
+                    <a href="#" value="manufacture"  class="px-[16px] py-[13px] text-[12px] md:text-[16px] leading-21px md:leading-30px inline-block text-light-gray">
+                        Manufacture
+                    </a>
+                </li>
+                <li class="whitespace-nowrap">
+                    <a href="#" value="software" class="px-[16px] py-[13px] text-[12px] md:text-[16px] leading-21px md:leading-30px inline-block text-light-gray">
+                        Software
+                    </a>
+                </li>
+                <li class="whitespace-nowrap">
+                    <a href="#" value="digital" class="px-[16px] py-[13px] text-[12px] md:text-[16px] leading-21px md:leading-30px inline-block text-light-gray">
+                        Digital
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="md:w-[calc(100%+24px)] md:ml-[-24px] md:table">
+            {{ if lt $postCount 4 }}
+                
+                {{ $count := 0 }}
+                {{ range .Pages }}
+
+                    {{ if eq $count 0 }}
+
+                        {{ partial "big_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Date "Category" .Params.category) }}
+
+                    {{ else }}
+
+                        {{ partial "small_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Params.date "Category" .Params.category) }}
+            
+                    {{ end }}
+
+                    {{ $count = add $count 1 }}
+
+                {{ end }}
+
+            {{ else }}
+
+                {{ $count := 0 }}
+                {{ range first 3 .Pages }}
+
+                    {{ if eq $count 0 }}
+
+                    {{ partial "big_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Params.date "Category" .Params.category) }}
+
+                    {{ else }}
+
+                        {{ partial "small_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Params.date "Category" .Params.category) }}
+            
+                    {{ end }}
+
+                    {{ $count = add $count 1 }}
+
+                {{ end }}
+
+
+
+                {{ range after 3 .Pages }}
+
+                    {{ partial "small_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Params.date "Category" .Params.category) }}
+
+                {{ end }}
+
+            {{ end }}
+        </div>
+
+    </div>
+
+
+    {{ partial "subscribe" . }}
+</div>
+{{end}}

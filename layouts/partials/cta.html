@@ -1,0 +1,61 @@
+<!-- END: CTA 1/2 -->
+<section
+   class="relative z-10 px-6 py-12 mx-8 overflow-hidden text-center bg-no-repeat section-cta pb-60 md:p-16 md:py-20 my-14 md:mx-0 bg-2 rounded-3xl md:text-left"
+   id="cta"
+>
+   <h4
+      class="mb-10 text-3xl md:text-4xl lg:text-6xl md:leading-snug lg:leading-snug md:mb-12"
+   >
+      {{ .Params.cta.title | safeHTML }}
+   </h4>
+ 
+   <a
+      href="https://book.morgen.so/bpsodimu/dimsoudigitalconsult"
+      target="_blank"
+      class="flex gap-2 py-4 mx-auto text-base uppercase duration-200 ease-linear bg-black rounded-full px-7 w-fit md:mx-0"
+   > 
+      <span>Book a consultation </span>
+
+      <svg
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+      >
+         <path
+            d="M14.4297 5.92993L20.4997 11.9999L14.4297 18.0699"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+         />
+         <path
+            d="M3.5 12H20.33"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+         />
+      </svg>
+   </a>
+
+   <div class="absolute bottom-0 right-0 md:top-0 -z-10">
+      <img
+         class="hidden h-full md:block"
+         src="{{ .Params.cta.desktop_image }}"
+         alt="CTA Image"
+      />
+      <img
+         class="block md:hidden"
+         src="{{ .Params.cta.mobile_image }}"
+         alt="CTA Image"
+      />
+      <div
+         class="absolute top-0 bottom-0 left-0 right-0 z-10 gradient-overlay"
+      ></div>
+   </div>
+</section>
+<!-- END: CTA 1/2 -->

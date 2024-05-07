@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+.filter_list ul li.active{
+    border-bottom: 1px solid rgba(151, 80, 251, 1);
+}
+.filter_list ul li.active a{
+    color: #fff;
+    font-weight: 700;
+}
+
+.pro-content .body p {
+    line-height: 30px;
+    font-size: 18px;
+    margin-top: 50px;
+    color: #fff;
+}

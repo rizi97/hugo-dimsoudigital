@@ -1,0 +1,80 @@
+{{ define "main"}}
+
+<div class="main_ bg-contain bg-no-repeat">
+    <div class="container mx-auto max-w-7xl">
+
+        <div class="pt-[64px]">
+            <div class="flex justify-between items-center">
+                <a href="/blog" class="text-[16px] leading-21px text-white flex items-center">
+                    <img class="mr-[4px]" src="/assets/images/arrow-left.png" alt="">
+                    <span class="md:block hidden">
+                        All magazine
+                    </span>
+                </a>
+                <div class="flex items-center">
+                    <a href="#" class="ml-2">
+                        <img src="/assets/images/link.png" alt="">
+                    </a>
+                    <a href="#" class="ml-2">
+                        <img src="/assets/images/facebook.png" alt="">
+                    </a>
+                    <a href="#" class="ml-2">
+                        <img src="/assets/images/x.png" alt="">
+                    </a>
+                    <a href="#" class="ml-2">
+                        <img src="/assets/images/linkedin.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="box-item w-full md:w-full overflow-hidden pt-[24px] md:pt-[56px] mb-[24px] md:mb-0">
+                <div class="pro-img w-full pr-0 md:w-full md:pr-0">
+                    <img class="w-full" src="{{ .Params.image }}" alt="">
+                </div>
+                <div class="pro-content w-full pl-0">
+                    <p class="datee mt-[24px] text-[12px] md:text-[14px] leading-19px md:leading-23px  text-light-gray">
+                        {{ dateFormat "January 2, 2006" .Date }}</p>
+                    <h3
+                        class="mt-[4px] md:mt-[8px] text-[24px] md:text-[48px] text-white font-medium leading-28px md:leading-62px">
+                        {{.Title}}</h3>
+                    <p class="texte mt-[16px] text-[12px] md:text-[14px] leading-19px md:leading-23px  text-light-gray">
+                        {{ $category := title .Params.category }}
+                        {{ $category = replace $category ", " " / " }}
+                        {{ $category }}
+                    </p>
+                    <div
+                        class="body text-[12px] md:text-[18px] leading-19px md:leading-30px mt-[30px] md:mt-[50px] text-white">
+                        {{ .Content }}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-[80px] md:mt-[128px]">
+
+        {{ $related := (where (.Site.RegularPages.Related .) "Type" "blog") | first 3 }}
+
+        {{ if $related }}
+
+        <div class="container mx-auto max-w-7xl">
+            <h2
+                class="text-white text-[32px] md:text-[70px] leading-41px text-center md:text-left md:leading-91px font-medium mb-[24px] md:mb-0">
+                Related Articles
+            </h2>
+            <div class="md:w-[calc(100%+24px)] md:ml-[-24px] md:table">
+
+                {{ range $related }}
+                {{ partial "small_card.html" (dict "Title" .Title "URL" .Permalink "Image" .Params.image "PostDate" .Params.date "Category" .Params.category) }}
+                {{ end }}
+
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    {{ partial "subscribe" . }}
+
+</div>
+
+{{end}}

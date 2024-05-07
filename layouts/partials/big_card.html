@@ -1,0 +1,22 @@
+<div data="{{ .Category }}"
+    class="box-item w-full md:max-w-66 md:w-66% overflow-hidden md:float-left pt-[24px] md:pt-[40px] mb-[24px] md:mb-0 md:pl-[24px]">
+    <div class="pro-img w-full pr-0 md:w-full md:pr-0">
+        <a href="{{ .URL }}">
+            <img class="w-full" src="{{ .Image }}" alt="">
+        </a>
+    </div>
+    <div class="pro-content w-full pl-0">
+        <p class="datee mt-[24px] text-[12px] md:text-[14px] leading-19px md:leading-23px  text-light-gray">{{
+            dateFormat "January 2, 2006" .PostDate }}</p>
+        <a href="{{ .URL }}">
+            <h3
+                class="mt-[4px] md:mt-[8px] text-[24px] md:text-[48px] text-white font-medium leading-28px md:leading-62px">
+                {{ .Title }}</h3>
+        </a>
+        <p class="texte mt-[16px] text-[12px] md:text-[14px] leading-19px md:leading-23px  text-light-gray">
+            {{ $category := title .Category }}
+            {{ $category = replace $category ", " " / " }}
+            {{ $category }}
+        </p>
+    </div>
+</div>

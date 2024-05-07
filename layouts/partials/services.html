@@ -1,0 +1,33 @@
+<!-- START: Services -->
+<section class="pb-16 overflow-hidden pt-14 md:pt-24 md:pb-24 bg-opacity-40" id="our-services">
+    <div class="overlay">
+        <img src="/assets/images/bg-services.png" alt="">
+    </div>
+    <!-- Container  -->
+    <div class="px-8 mx-auto max-w-7xl h-4/6">
+        <div class="max-w-6xl mx-auto mb-24 text-center">
+            <h3 class="mb-5 text-2xl tracking-widest uppercase sm:mb-7 head-2">{{ .Params.OurServices.subHeading }}</h3>
+            <h2 class="mb-6 text-3xl md:text-7xl md:mb-8">{{ .Params.OurServices.title }}
+            </h2>
+            <p class="max-w-4xl mx-auto text-sm leading-6 opacity-50 md:text-xl lg:text-3xl md:leading-8">
+                {{ .Params.OurServices.content }}</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto md:px-10 h-4/6">
+            <div class="grid-cols-2 md:grid gap-7 md:gap-10 lg:gap-14">
+
+                {{ range .Params.OurServices.cards }}
+                <div class="mb-11 md:mb-0">
+                    <div
+                        class="flex justify-center w-10 h-10 p-2 mb-5 align-middle border border-white rounded-full md:w-20 md:h-20 md:p-5 md:mb-11">
+                        <img src="{{ .image }}" alt="Services Icon 1">
+                    </div>
+                    <h4 class="mb-3 text-lg md:text-3xl md:mb-7">{{ .title }}</h4>
+                    <p class="text-xs leading-5 md:text-base lg:text-lg opacity-70 md:leading-7">{{ .content }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Services -->

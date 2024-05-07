@@ -1,0 +1,57 @@
+<footer>
+   <!-- Container  -->
+   <div class="px-8 mx-auto max-w-7xl h-4/6">
+      <div class="py-10 md:py-16">
+         <div class="flex flex-col gap-6 md:flex-row">
+            <div>
+               <a href="#"
+                  ><img
+                     class="mb-8 md:mb-10 w-52"
+                     src="{{ .Site.Params.siteLogo }}"
+                     alt="Footer Logo"
+               /></a>
+
+               <p
+                  class="max-w-md mb-10 text-xs leading-5 md:mb-20 md:text-base md:leading-7 opacity-70"
+               >
+                  {{ .Site.Params.footerText }}
+               </p>
+               <div>
+                  <a
+                     class="text-xl font-medium sm:text-2xl md:text-base"
+                     href="mailto:contact@dimsoudigital.com"
+                  >
+                     {{ .Site.Params.footerEmail }}</a
+                  >
+               </div>
+            </div>
+            <div class="md:text-right md:mt-auto md:ml-auto">
+               <ul
+                  class="grid grid-cols-2 gap-3 text-base md:grid-cols-1 md:text-base"
+               >
+                  {{ range .Site.Menus.footer }}
+                  <li>
+                     <a href="{{ .URL }}">{{ .Name }}</a>
+                  </li>
+                  {{ end }}
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div
+         class="flex justify-between gap-4 py-8 border-t border-white border-opacity-40 md:py-6"
+      >
+         <p class="order-2 mt-auto text-base md:order-1">All rights reserved</p>
+
+         <ul
+            class="flex flex-col order-1 gap-4 text-base md:order-2 md:flex-row md:gap-6 lg:gap-11"
+         >
+            {{ range .Site.Menus.footer_bottom }}
+            <li>
+               <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+         </ul>
+      </div>
+   </div>
+</footer>

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "scripts": {
+    "build-tw": "npx tailwindcss -i static/assets/main.css -o static/assets/custom.css",
+    "watch-tw": "npx tailwindcss -i static/assets/main.css -o static/assets/custom.css -w --minify"
+  }
+}

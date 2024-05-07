@@ -1,0 +1,59 @@
+<!-- START: Hero -->
+<section class="relative bg-cover" style="background: url('{{ .Params.bg_image }}') no-repeat;background-size: 100%;">
+   <!-- START: Header -->
+   <div class="mx-auto mb-10 max-w-7xl">
+      <header
+         class="relative z-50 py-6 border-b border-white header md:py-6 border-opacity-30 px-7 sm:px-0"
+      >
+         <!-- Container: Small   -->
+         <nav class="flex flex-col gap-4 lg:flex-row lg:gap-0">
+            <div
+               class="relative flex items-center justify-between align-middle md:mr-8"
+            >
+               <a href="{{.Site.BaseURL}}">
+                  <img
+                     class="w-48 h-8 md:w-auto"
+                     src="{{site.Params.siteLogo}}"
+                     alt="{{.Site.Params.title}} Logo"
+                  />
+               </a>
+
+               <div class="w-8 h-7">
+                  <a
+                     class="hamburger lg:hidden"
+                     href="#"
+                     id="menu-button"
+                  >
+                     <div></div>
+                  </a>
+               </div>
+            </div>
+
+            <div class="hidden w-full dropdown lg:block" id="menu">
+               <ul class="flex flex-col gap-4 lg:flex-row lg:items-center px-7 pb-16 sm:pb-0">
+                  {{ range .Site.Menus.main_menu }}
+                  <li>
+                     <a
+                        class="block py-4 text-white duration-200 ease-linear opacity-50 md:px-4 hover:opacity-100"
+                        href="{{ .URL }}"
+                        >{{ .Name }}</a
+                     >
+                  </li>
+                  {{ end }}
+                  <li class="md:ml-auto">
+                     <a
+                        id="btn-contact-us"
+                        target="_blank"
+                        href="https://book.morgen.so/bpsodimu/dimsoudigitalconsult"
+                        class="px-6 py-3 text-sm font-bold text-black uppercase duration-200 ease-linear bg-white rounded-full md:px-7"
+                     >
+                        Book a free consult
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+   </div>
+   <!-- END: Header -->
+
